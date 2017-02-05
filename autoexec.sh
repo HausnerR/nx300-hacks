@@ -27,6 +27,10 @@ do
   fi
 done
 
+echo 1 > /sys/devices/platform/leds-gpio/leds/card/brightness
+sleep 0.5
+echo 0 > /sys/devices/platform/leds-gpio/leds/card/brightness
+
 /mnt/mmc/INTVAL/button_png /mnt/mmc/INTVAL/2.png "sh /mnt/mmc/INTVAL/timelapse.sh 2 &" 1 144 64 64 &
 /mnt/mmc/INTVAL/button_png /mnt/mmc/INTVAL/5.png "sh /mnt/mmc/INTVAL/timelapse.sh 5 &" 1 208 64 64 &
 /mnt/mmc/INTVAL/button_png /mnt/mmc/INTVAL/10.png "sh /mnt/mmc/INTVAL/timelapse.sh 10 &" 1 272 64 64 &
