@@ -3,6 +3,11 @@
 mkdir -p /dev/pts
 mount -t devpts none /dev/pts
 
-#telnetd -l /bin/bash -F > /mnt/mmc/INTVAL/telnetd.log 2>&1 &
+#SSH
+#telnetd -l /bin/bash -F &
 
+#FTP
+#tcpsvd -u root -vE 0.0.0.0 21 ftpd -w  /mnt/mmc &
+
+#Intervalometer
 /mnt/mmc/INTVAL/intval.sh &
