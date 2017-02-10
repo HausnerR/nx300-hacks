@@ -55,7 +55,7 @@ static Eina_Bool key_down_callback(void *data, int type, void *ev)
         elm_entry_cursor_pos_set(input, 10000);
     }
 
-    //printf("Key: %s\n",event->key);
+    //printf("Key: %s\n", event->key);
     return ECORE_CALLBACK_PASS_ON;
 }
 
@@ -65,7 +65,7 @@ elm_main(int argc, char **argv)
     ecore_event_handler_add(ECORE_EVENT_KEY_DOWN, key_down_callback, NULL);
 
     win = elm_win_add(NULL, "Info", ELM_WIN_BASIC);
-    elm_win_rotation_set(win, 270);
+    elm_win_rotation_set(win, 270); //NX300 have rotated interface!
     evas_object_move(win, 310, 80);
     elm_win_title_set(win, "Info");
     //evas_object_smart_callback_add(win, "delete,request", ok_button_clicked, NULL);
@@ -101,10 +101,11 @@ elm_main(int argc, char **argv)
     elm_entry_single_line_set(input, EINA_TRUE);
     elm_entry_input_panel_layout_set(input, ELM_INPUT_PANEL_LAYOUT_NUMBERONLY);
     elm_entry_markup_filter_append(input, elm_entry_filter_limit_size, &limit_size);
+    //evas_object_size_hint_min_set(input, 300, 40); //But later can't align text to center :(
     evas_object_size_hint_padding_set(input, 10, 10, 20, 10);
     elm_table_pack(table, input, 2, 1, 1, 1);
     evas_object_show(input);
-    elm_object_focus_set(input, EINA_TRUE);
+    elm_object_focus_set(input, EINA_TRUE); //Doesn't work propertly. Entry is focused but sometimes no keyboard :(
 
     button_cancel = elm_button_add(win);
     elm_object_text_set(button_cancel, "Cancel");
