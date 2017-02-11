@@ -9,6 +9,8 @@ static void ok_button_clicked(void *data, Evas_Object *obj, void *event_info)
 {
     int i = strtol(elm_object_text_get(input), NULL, 10);
 
+    elm_exit();
+
     system("st lcd set 4");
 
     if (i == 0) {
@@ -19,7 +21,6 @@ static void ok_button_clicked(void *data, Evas_Object *obj, void *event_info)
         system(buf);
     }
 
-    elm_exit();
     exit(0);
 }
 

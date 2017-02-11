@@ -9,5 +9,8 @@ mount -t devpts none /dev/pts
 #FTP
 #tcpsvd -u root -vE 0.0.0.0 21 ftpd -w  /mnt/mmc &
 
+#Charge'n'shoot
+/mnt/mmc/CHARGENSHOOT/chargenshoot.sh &
+
 #Intervalometer
 /mnt/mmc/INTVAL/intval.sh &
